@@ -1,0 +1,43 @@
+{
+  "n_train": 44198,
+  "n_test": 11050,
+  "epochs": 50,
+  "lambda_adv": 1.0,
+  "emb_dim": 32,
+  "device": "cpu",
+  "architecture": "Encoder(4\u219264\u219232, linear out) + Predictor(32\u219232\u21921) + Discriminator(32\u219232\u21921) + GRL(\u03bb=1.0)",
+  "auc_predictor_baseline": 0.7181,
+  "auc_predictor_debiased": 0.7195,
+  "auc_discriminator_baseline": 0.9988,
+  "auc_discriminator_debiased": 0.2439,
+  "auc_discriminator_symmetric": 0.7561,
+  "debiasing_success": false,
+  "training_history_last5": [
+    {
+      "epoch": 46,
+      "pred_loss": 0.5921,
+      "disc_loss": 0.57763
+    },
+    {
+      "epoch": 47,
+      "pred_loss": 0.59141,
+      "disc_loss": 0.5696
+    },
+    {
+      "epoch": 48,
+      "pred_loss": 0.59127,
+      "disc_loss": 0.57244
+    },
+    {
+      "epoch": 49,
+      "pred_loss": 0.5915,
+      "disc_loss": 0.57369
+    },
+    {
+      "epoch": 50,
+      "pred_loss": 0.59107,
+      "disc_loss": 0.56182
+    }
+  ],
+  "note": "Review-level evaluation with paper overlap; symmetric timing AUC is max(AUC, 1-AUC). No independent post-training adversary or invariance claim."
+}

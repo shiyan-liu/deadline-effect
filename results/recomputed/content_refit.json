@@ -1,0 +1,38 @@
+{
+  "2024": {
+    "raw_text_z_CONTAMINATED": {
+      "fit": {
+        "a_star": 1.904709
+      }
+    },
+    "residualized_text_z_HONEST_TEST": {
+      "fit": {
+        "a_star": -1.890967
+      }
+    }
+  },
+  "2025": {
+    "raw_text_z_CONTAMINATED": {
+      "fit": {
+        "a_star": 1.852887
+      }
+    },
+    "residualized_text_z_HONEST_TEST": {
+      "fit": {
+        "a_star": -1.981556
+      }
+    }
+  },
+  "2026": {
+    "raw_text_z_CONTAMINATED": {
+      "fit": {
+        "a_star": 1.92976
+      }
+    },
+    "residualized_text_z_HONEST_TEST": {
+      "fit": {
+        "a_star": -2.078074
+      }
+    }
+  }
+}

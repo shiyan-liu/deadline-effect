@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "venue": "iclr",
+      "year": 2024,
+      "file": "data/iclr2024_numeric.json.gz",
+      "papers_before_filter": 7404,
+      "reviews_before_filter": 28028,
+      "sha256": "f90c43ec681848b546f181e60026ece39c396f481449c753cea02f93b25de91b",
+      "source_forum_url": "https://openreview.net/forum?id={forum}",
+      "source_review_url": "https://openreview.net/forum?id={forum}&noteId={review_id}"
+    },
+    {
+      "venue": "iclr",
+      "year": 2025,
+      "file": "data/iclr2025_numeric.json.gz",
+      "papers_before_filter": 11672,
+      "reviews_before_filter": 46748,
+      "sha256": "40fec3fd6294f87c3d1141908ac57a569e68ff248680c9d092aa1c79ead0e57d",
+      "source_forum_url": "https://openreview.net/forum?id={forum}",
+      "source_review_url": "https://openreview.net/forum?id={forum}&noteId={review_id}"
+    },
+    {
+      "venue": "iclr",
+      "year": 2026,
+      "file": "data/iclr2026_numeric.json.gz",
+      "papers_before_filter": 14175,
+      "reviews_before_filter": 55251,
+      "sha256": "2fedcc5ac8233fbd831ed93faa373bb906c8016cadef34c663eaf7c989a5c449",
+      "source_forum_url": "https://openreview.net/forum?id={forum}",
+      "source_review_url": "https://openreview.net/forum?id={forum}&noteId={review_id}"
+    },
+    {
+      "venue": "neurips",
+      "year": 2025,
+      "file": "data/neurips2025_numeric.json.gz",
+      "papers_before_filter": 5541,
+      "reviews_before_filter": 22373,
+      "sha256": "5053c51bcf104436564c939cc1aa4ed219ff293d0969032853f1c4e281a30b43",
+      "source_forum_url": "https://openreview.net/forum?id={forum}",
+      "source_review_url": "https://openreview.net/forum?id={forum}&noteId={review_id}"
+    }
+  ],
+  "excluded": [
+    "author identities and contact fields",
+    "reviewer identities",
+    "review and metareview prose",
+    "paper PDFs",
+    "credentials",
+    "private discussion and local pilot records"
+  ]
+}

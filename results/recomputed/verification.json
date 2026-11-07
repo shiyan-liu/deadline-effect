@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "numerical_values_checked": 705,
+  "input_hashes_verified": 4,
+  "validation": "deadline, confidence, AI markers and selected NeurIPS sample",
+  "scope": "Computational replay of statistical tables; not fresh paid LLM calls or a claim of ATD invariance."
+}

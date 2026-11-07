@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the associated NeurIPS 2026 paper."
+title: "The Deadline Effect: Identifying and Correcting Temporal Bias in Human Evaluation"
+authors:
+  - family-names: Liu
+    given-names: Shiyan
+year: 2026
+url: "https://github.com/shiyan-liu/deadline-effect"
+repository-code: "https://github.com/shiyan-liu/deadline-effect"
+license: MIT

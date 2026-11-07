@@ -1,0 +1,60 @@
+{
+  "source": "https://openreview.net/forum?id=At4p3kXMIV#discussion",
+  "granularity": "author-confirmed judge-by-year summaries; no per-pair outputs are fabricated",
+  "runs": [
+    {
+      "year": 2024,
+      "model": "GPT-4.1",
+      "decisive_pairs": 789,
+      "early_win_percent": 54.6,
+      "length_only_percent": 54.9,
+      "matched_early_win_percent": 52.4,
+      "matched_decisive_pairs": 82
+    },
+    {
+      "year": 2024,
+      "model": "DeepSeek-V4-Pro",
+      "decisive_pairs": 557,
+      "early_win_percent": 54.2,
+      "length_only_percent": 53.9,
+      "matched_early_win_percent": 52.2,
+      "matched_decisive_pairs": 46
+    },
+    {
+      "year": 2025,
+      "model": "GPT-4.1",
+      "decisive_pairs": 814,
+      "early_win_percent": 54.4,
+      "length_only_percent": 56.9,
+      "matched_early_win_percent": 39.3,
+      "matched_decisive_pairs": 84
+    },
+    {
+      "year": 2025,
+      "model": "DeepSeek-V4-Pro",
+      "decisive_pairs": 512,
+      "early_win_percent": 56.1,
+      "length_only_percent": 58.2,
+      "matched_early_win_percent": 41.5,
+      "matched_decisive_pairs": 41
+    },
+    {
+      "year": 2026,
+      "model": "GPT-4.1",
+      "decisive_pairs": 834,
+      "early_win_percent": 51.7,
+      "length_only_percent": 53.6,
+      "matched_early_win_percent": 43.2,
+      "matched_decisive_pairs": 95
+    },
+    {
+      "year": 2026,
+      "model": "DeepSeek-V4-Pro",
+      "decisive_pairs": 445,
+      "early_win_percent": 52.1,
+      "length_only_percent": 56.0,
+      "matched_early_win_percent": 46.5,
+      "matched_decisive_pairs": 43
+    }
+  ]
+}

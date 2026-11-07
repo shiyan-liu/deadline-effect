@@ -1,0 +1,10 @@
+{
+  "granularity": "reported 2026 exploratory review-level evaluation",
+  "timing_baseline_auc": 0.999,
+  "timing_raw_auc": 0.375,
+  "timing_symmetric_auc": 0.625,
+  "acceptance_baseline_auc": 0.718,
+  "acceptance_atd_auc": 0.72,
+  "seed": 42,
+  "epochs": 50
+}
