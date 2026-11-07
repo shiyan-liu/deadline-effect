@@ -24,5 +24,9 @@ assert v['neurips2025']['papers']==5541 and v['neurips2025']['reviews']==22373
 assert abs(v['pooled_deadline']['beta'][1]+.097843)<1e-6 and abs(v['pooled_deadline']['beta'][2]-.033349)<1e-6
 for year,want in [('2024',[-.06,-1.73]),('2025',[.01,.03]),('2026',[-.01,-.71])]:
  z=v['iclr'][year]['ai'];assert abs(z['density_cohens_d']-want[0])<.006;assert abs(z['presence_difference_pp']-want[1])<.006
+atd=json.loads((P/'results/reference/atd_reported.json').read_text())
+assert atd['auc_discriminator_symmetric']==max(atd['auc_discriminator_debiased'],round(1-atd['auc_discriminator_debiased'],4))
+assert atd['n_train']+atd['n_test']==55248
+assert atd['epochs']==50 and atd['device']=='cpu'
 summary={'passed':True,'numerical_values_checked':checks,'input_hashes_verified':len(manifest['sources']),'validation':'deadline, confidence, AI markers and selected NeurIPS sample','scope':'Computational replay of statistical tables; not fresh paid LLM calls or a claim of ATD invariance.'}
 (P/'results/recomputed/verification.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2))

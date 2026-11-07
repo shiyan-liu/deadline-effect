@@ -1,4 +1,4 @@
-"""Archived ATD protocol. Descending-rank AUC matches the reported orientation.
+"""ATD protocol with standard, tie-aware ROC AUC.
 Use symmetric timing AUC for interpretation; no invariance claim is made.
 The review split permits paper overlap. Device/precision can change numerical outputs.
 """
@@ -124,17 +124,15 @@ def adversarial_debiasing(papers: list[dict], epochs: int=50, lr: float=0.001, l
     Yd_np = Yd_te.numpy().ravel()
 
     def auc_np(scores, labels):
-        """Wilcoxon-Mann-Whitney AUC（O(n log n)）。"""
-        scores = np.array(scores)
-        labels = np.array(labels)
-        order = np.argsort(-scores)
-        labels_s = labels[order]
-        n_pos = labels_s.sum()
-        n_neg = len(labels_s) - n_pos
+        from scipy.stats import rankdata
+        scores = np.asarray(scores)
+        labels = np.asarray(labels)
+        n_pos = np.sum(labels == 1)
+        n_neg = np.sum(labels == 0)
         if n_pos == 0 or n_neg == 0:
             return float('nan')
-        ranks = np.arange(1, len(labels_s) + 1)
-        rank_sum_pos = ranks[labels_s == 1].sum()
+        ranks = rankdata(scores, method='average')
+        rank_sum_pos = ranks[labels == 1].sum()
         return float((rank_sum_pos - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg))
     auc_disc_deb = auc_np(disc_p, Yd_np)
     auc_disc_base = auc_np(X_te[:, 3].numpy(), Yd_np)

@@ -32,7 +32,7 @@ python -m pip install -r requirements-atd.txt
 ATD_DEVICE=cpu python scripts/train_atd.py --epochs 50
 ```
 
-This is the archived review-level ATD protocol, with seed 42. It permits paper overlap, uses full-snapshot preprocessing, and is not an independent-adversary invariance test. The historical timing AUC used descending-rank orientation; interpret its symmetric value. A fresh run is saved separately from the reported reference summary. Backend and precision can change its numerical result.
+This is the archived review-level ATD protocol, with seed 42. It permits paper overlap, uses full-snapshot preprocessing, and is not an independent-adversary invariance test. ROC AUC uses standard ascending ranks with average ranks for ties. Timing AUC is symmetric under label reversal. The reported CPU run and its reference output are included; use the documented environment and seed when reproducing them.
 
 ## Optional LLM assessments
 

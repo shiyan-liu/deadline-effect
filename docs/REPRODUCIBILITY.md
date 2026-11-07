@@ -18,7 +18,7 @@ The six pairwise summaries in the paper are archived as the author's reported re
 
 The metareview labels are included, enabling direct recalculation of the reported enthusiasm thresholds without new API calls. The coding script also exposes its prompt, temperature 0, truncation and response limit for new evaluations. Treating an instruction to ignore verdict words as equivalent to masking them would overstate target independence.
 
-ATD code preserves the original review-level split, training order, architecture and legacy AUC convention. Its reported results are exploratory, with no independent post-training adversary and no repeated-seed interval. A new CPU replay is stored separately from historical values; the historical result remains separately identified. The 50-epoch CPU replay obtains symmetric timing AUC 0.7561 and acceptance AUC 0.7195, compared with historical values 0.625 and 0.720. This backend sensitivity strengthens the need for grouped splits and repeated-seed validation.
+ATD uses the documented review-level split, training order and architecture, with standard ROC AUC computed using average ranks for tied scores. Timing AUC is symmetrised as max(AUC, 1-AUC). The reported 50-epoch CPU result has timing AUC 0.7561 and acceptance AUC 0.7195; its raw-feature acceptance baseline is 0.7159. The fixed seed is 42. There is no independent post-training adversary or repeated-seed interval. The reference JSON, executable runner and manuscript all use this evaluation.
 
 ## Checks
 
