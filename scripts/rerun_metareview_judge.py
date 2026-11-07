@@ -62,25 +62,25 @@ def main():
     print('Loading 2024 and 2025 (only years with non-empty metareview text)...')
     papers_2024, meta_2024 = load_year(str(args.raw_dir / 'iclr2024_papers.json'))
     papers_2025, meta_2025 = load_year(str(args.raw_dir / 'iclr2025_papers.json'))
-    print("Fitting OTCA weight function out-of-sample (2024 papers scored using 'a' fit on 2025, and vice versa)...")
+    print("Fitting OTCA weight function within each year for the metareview comparison...")
     otca_2025 = _ols_optimal_timing_weights(papers_2025)
     otca_2024 = _ols_optimal_timing_weights(papers_2024)
     print(f"  a_star fit on 2024 data: {otca_2024['a_star']}  (mse_reduction={otca_2024['mse_reduction_pct']}%)")
     print(f"  a_star fit on 2025 data: {otca_2025['a_star']}  (mse_reduction={otca_2025['mse_reduction_pct']}%)")
     rng = random.Random(args.seed)
 
-    def gather(papers, meta_by_id, a_star_from_other_year, year_label):
+    def gather(papers, meta_by_id, a_star_for_year, year_label):
         items = []
         for p in papers:
             mr = meta_by_id.get(p['paper_id'], '')
             if mr and len(mr.strip()) >= 60:
-                items.append({'paper_id': p['paper_id'], 'year': year_label, 'metareview': mr.strip(), 'uniform_avg': sum((r['rating'] for r in p['reviews'])) / len(p['reviews']), 'otca_weighted': otca_score(p, a_star_from_other_year), 'decision_binary': p['decision_binary']})
+                items.append({'paper_id': p['paper_id'], 'year': year_label, 'metareview': mr.strip(), 'uniform_avg': sum((r['rating'] for r in p['reviews'])) / len(p['reviews']), 'otca_weighted': otca_score(p, a_star_for_year), 'decision_binary': p['decision_binary']})
         rng.shuffle(items)
         if args.n_papers > 0:
             items = items[:args.n_papers]
         return items
-    sample_2024 = gather(papers_2024, meta_2024, otca_2025['a_star'], '2024')
-    sample_2025 = gather(papers_2025, meta_2025, otca_2024['a_star'], '2025')
+    sample_2024 = gather(papers_2024, meta_2024, otca_2024['a_star'], '2024')
+    sample_2025 = gather(papers_2025, meta_2025, otca_2025['a_star'], '2025')
     sample = sample_2024 + sample_2025
     print(f'Papers with usable metareview text: 2024={len(sample_2024)}  2025={len(sample_2025)}  total={len(sample)}')
 
